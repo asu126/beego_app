@@ -6,6 +6,7 @@ import (
 
 type User struct {
 	Id      int
+	Iid     int
 	Name    string
 	Profile *Profile `orm:"rel(one)"`      // OneToOne relation
 	Post    []*Post  `orm:"reverse(many)"` // 设置一对多的反向关系
