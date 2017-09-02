@@ -3,7 +3,7 @@ package main
 import (
 	_ "app/routers"
 	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/logs"
+	// "github.com/astaxie/beego/logs"
 
 	db "app/lib/db"
 	"github.com/astaxie/beego/orm"
@@ -20,9 +20,9 @@ func init() {
 }
 
 func main() {
-	log := logs.NewLogger()
-	logs.SetLogger(logs.AdapterConsole, `{"level":1}`)
-	log.Debug("this is a debug message")
+	// log := logs.NewLogger()
+	// logs.SetLogger(logs.AdapterConsole, `{"level":1}`)
+	// log.Debug("this is a debug message")
 
 	beego.Run()
 }
