@@ -24,9 +24,10 @@ func (this *UserController) Get() {
 	fmt.Println(keys, len(keys))
 	fmt.Println(this.Ctx.Request.RequestURI)
 
-	m.FindByID(1)
+	user, _ := m.FindByID(66)
+	fmt.Println(user.Id)
 
 	this.Data["Website"] = this.Ctx.Input.Param(":id")
 	this.Data["Email"] = "astfffffffffffffffffffffffffxie@gmail.com"
-	this.TplName = "index.tpl"
+	this.TplName = "demo.tpl"
 }

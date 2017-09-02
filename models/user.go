@@ -21,19 +21,25 @@ func init() {
 }
 
 // 为什么一定要大写开头?
-func FindByID(id int) {
+func FindByID(id int) (User, error) {
 	o := orm.NewOrm()
 	user := User{Id: id}
 
 	err := o.Read(&user)
 
-	if err == orm.ErrNoRows {
-		fmt.Println("查询不到")
-	} else if err == orm.ErrMissPK {
-		fmt.Println("找不到主键")
-	} else {
-		fmt.Println(user.Id, user.Name)
+	// if err == orm.ErrNoRows {
+	// 	fmt.Println("查询不到")
+	// } else if err == orm.ErrMissPK {
+	// 	fmt.Println("找不到主键")
+	// } else {
+	// 	fmt.Println(user.Id, user.Name)
+	// }
+	if err != nil {
+		return user, err
 	}
+
+	fmt.Println(user.Abc)
+	return user, nil
 }
 
 func InsertUser() {
