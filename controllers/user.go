@@ -4,6 +4,9 @@ import (
 	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
+
+	m "app/models"
+	// _ "github.com/go-sql-driver/mysql"
 )
 
 type UserController struct {
@@ -20,6 +23,8 @@ func (this *UserController) Get() {
 	this.Ctx.Input.Bind(&keys, "keys")
 	fmt.Println(keys, len(keys))
 	fmt.Println(this.Ctx.Request.RequestURI)
+
+	m.FindByID(1)
 
 	this.Data["Website"] = this.Ctx.Input.Param(":id")
 	this.Data["Email"] = "astfffffffffffffffffffffffffxie@gmail.com"

@@ -29,6 +29,7 @@ func init() {
 	// 	ctx.Output.Body([]byte("hello world dd"))
 	// })
 	beego.Router("/*.git", &controllers.UserController{})
+	beego.Router("/user", &controllers.UserController{})
 	// beego.Get("/api", func(ctx *context.Context) {
 	// 	ctx.Output.Body([]byte("hello api"))
 	// })
