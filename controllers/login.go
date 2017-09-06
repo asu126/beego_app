@@ -35,5 +35,7 @@ func (this *LoginController) Post() {
 	fmt.Println(this.Input().Get("username"))
 	fmt.Println(this.Input().Get("password"))
 	fmt.Println("(0000000000000 0000000000)")
-	this.TplName = "dashbord.html"
+	// this.TplName = "dashbord.html"
+	// UrlFor("DashbordController.Get")
+	this.Redirect("/dashbord", 302)
 }

@@ -31,6 +31,7 @@ func init() {
 	beego.Router("/*.git", &controllers.UserController{})
 	beego.Router("/user", &controllers.UserController{})
 	beego.Router("/login", &controllers.LoginController{})
+	beego.Router("/dashbord", &controllers.DashbordController{})
 	// beego.Get("/api", func(ctx *context.Context) {
 	// 	ctx.Output.Body([]byte("hello api"))
 	// })
