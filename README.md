@@ -19,8 +19,19 @@ node_modules/.bin/webpack
 ```
 npm install --save-dev webpack-dev-server
 ```
+- Loaders
+
+### vue
+- install
+```
+npm install --save-dev vue
+```
+
 
 ### 参考说明
 [beego]: https://beego.me/docs/intro/
 [beego 工程]: https://github.com/beego/admin.
 [webpack]: http://www.jianshu.com/p/42e11515c10f
+[webpack-1]: https://webpack.js.org/configuration/dev-server/
+[vue]: https://cn.vuejs.org/
+[vue-demo]: https://segmentfault.com/a/1190000008678236
