@@ -20,6 +20,7 @@ func init() {
 }
 
 func main() {
+	beego.SetStaticPath("/public", "public")
 	// log := logs.NewLogger()
 	// logs.SetLogger(logs.AdapterConsole, `{"level":1}`)
 	// log.Debug("this is a debug message")
