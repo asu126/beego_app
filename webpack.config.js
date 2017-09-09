@@ -36,12 +36,12 @@ module.exports = {
             }
         ]
   },
-  plugins: [
-        new htmlWebpackPlugin({
-            template: __dirname + "/views/vue.html",
-            hash: true
-        })
-  ],
+  // plugins: [
+  //       new htmlWebpackPlugin({
+  //           template: __dirname + "/views/vue.html",
+  //           hash: true
+  //       })
+  // ],
 
   devServer: {
     contentBase: "./public",//本地服务器所加载的页面所在的目录

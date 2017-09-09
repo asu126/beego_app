@@ -33,6 +33,7 @@ func init() {
 	beego.Router("/login", &controllers.LoginController{})
 	beego.Router("/dashbord", &controllers.DashbordController{})
 	beego.Router("/homepage", &controllers.HomepageController{})
+	beego.Router("/vue", &controllers.VueController{})
 	// beego.Get("/api", func(ctx *context.Context) {
 	// 	ctx.Output.Body([]byte("hello api"))
 	// })
