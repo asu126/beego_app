@@ -1,15 +1,18 @@
 var htmlWebpackPlugin = require('html-webpack-plugin');
+var path = require('path');
+var ROOT_PATH = path.resolve(__dirname, '..');
 
 module.exports = {
   devtool: 'eval-source-map',
-
+  context: ROOT_PATH,
   // entry:
   entry:  {
-    index:    __dirname + "/static/js/index.js",
-    main:     __dirname + "/static/js/main.js"//已多次提及的唯一入口文件
+    index:   "./static/js/index.js",
+    main:    "./static/js/main.js"//已多次提及的唯一入口文件
   },
   output: {
-    path: __dirname + "/public",//打包后的文件存放的地方
+    path: path.join(ROOT_PATH, 'public'),//打包后的文件存放的地方
+    publicPath: '//localhost:8081/public',
     filename: '[name].bundle.js'//打包后输出文件的文件名
   },
 
@@ -44,9 +47,11 @@ module.exports = {
   // ],
 
   devServer: {
-    contentBase: "./public",//本地服务器所加载的页面所在的目录
+    // contentBase: "./public",//本地服务器所加载的页面所在的目录
     historyApiFallback: true,//不跳转
     port:8081,
-    inline: true//实时刷新
+    inline: true, //实时刷新
+    hot: true,
+    headers: { 'Access-Control-Allow-Origin': '*' }
   } 
 }

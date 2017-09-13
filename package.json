@@ -9,7 +9,7 @@
   "scripts": {
     "start": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "webpack-dev-server --open"
+    "server": "nodemon --watch conf/webpack.config.js -- ./node_modules/.bin/webpack-dev-server --config conf/webpack.config.js --hot --inline"
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,7 @@
     "webpack-dev-server": "^2.7.1"
   },
   "dependencies": {
+    "nodemon": "^1.12.0",
     "vue": "^2.4.2",
     "vue-template-compiler": "^2.4.2"
   }

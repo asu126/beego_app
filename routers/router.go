@@ -28,7 +28,8 @@ func init() {
 	// 	// beego.Router("/user/:username([\w]+",func(ctx *context.Context) {
 	// 	ctx.Output.Body([]byte("hello world dd"))
 	// })
-	beego.Router("/*.git", &controllers.UserController{})
+	beego.Router("/public/:all", &controllers.PublicController{})
+	beego.Router("/git", &controllers.UserController{})
 	beego.Router("/user", &controllers.UserController{})
 	beego.Router("/login", &controllers.LoginController{})
 	beego.Router("/dashbord", &controllers.DashbordController{})
