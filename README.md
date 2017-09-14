@@ -6,7 +6,7 @@
 - npm init
 - webpack
 ```
-npm install --save-dev webpack
+npm install --save webpack
 ```
 - 打包编译
 ```
@@ -19,14 +19,20 @@ node_modules/.bin/webpack
 ```
 npm install --save-dev webpack-dev-server
 ```
+
 - Loaders
+
+- css
+```
+npm install --save style-loader css-loader
+```
 
 ** webpack 的热加载是通过起一个服务来监控文件的变化，并且是以内存文件的形式生成到内存中，所以beego demo 需要通过内部proxy来实现修改即可见。**
 
 ### vue
 - install
 ```
-npm install --save-dev vue
+npm install --save vue
 ```
 
 

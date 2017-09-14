@@ -1,3 +1,7 @@
-//main.js 
-const greeter = require('./greeter.js');
-document.querySelector("#root").appendChild(greeter());
+import jQuery from 'jquery';
+
+// expose common libraries as globals (TODO: remove these)
+window.jQuery = jQuery;
+window.$ = jQuery;
+
+require('bootstrap')

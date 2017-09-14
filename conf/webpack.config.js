@@ -8,6 +8,7 @@ module.exports = {
   // entry:
   entry:  {
     index:   "./static/js/index.js",
+    homepage: "./static/js/homepage.js",
     main:    "./static/js/main.js"//已多次提及的唯一入口文件
   },
   output: {
