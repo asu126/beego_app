@@ -11,7 +11,7 @@ var globalSessions *session.Manager
 
 func InitSession() {
 	sessionConfig := &session.ManagerConfig{
-		CookieName:     "gosessionid",
+		CookieName:     "beegosessionID",
 		Gclifetime:     3600,
 		ProviderConfig: "127.0.0.1:6379,100",
 	}
@@ -27,7 +27,9 @@ func GetSessionIdBySid(sid string) (string, error) {
 	sess, err := globalSessions.GetSessionStore(sid)
 	fmt.Println("get username..........")
 	fmt.Println(sess.Get("username"))
-	return sess.SessionID(), err
+	// return sess.SessionID(), err
+	username, _ := sess.Get("username").(string)
+	return username, err
 }
 
 // 首次登录，服务器端记录产生seesion，并记住用户信息
@@ -42,4 +44,12 @@ func SetSessionIdByUsername(w http.ResponseWriter, r *http.Request, username str
 	fmt.Println(sess.SessionID())
 	fmt.Println("set session success!!!")
 	return sess.SessionID(), err
+}
+
+// etSessionStore Get SessionStore by its id
+func DeleteSessionIdBySid(w http.ResponseWriter, r *http.Request) {
+	InitSession()
+	fmt.Println("SessionDestroy successful!!! ")
+	globalSessions.SessionDestroy(w, r)
+	// globalSessions.provider.SessionDestroy("sid")
 }

@@ -19,7 +19,7 @@ const (
 // route("PUT", gitProjectPattern+`gitlab-lfs/objects/([0-9a-f]{64})/([0-9]+)\z`, lfs.PutStore(api, proxy), isContentType("application/octet-stream")),
 
 func init() {
-	// beego.Router("/", &controllers.MainController{})
+	beego.Router("/", &controllers.MainController{})
 	// gitProjectPattern = `^/([^/]+/){1,}[^/]+\.git/`
 	// beego.Get("/([^/]+/){1,}[^/]+.git", func(ctx *context.Context) {
 	// 	ctx.Output.Body([]byte("hello world"))
@@ -29,9 +29,10 @@ func init() {
 	// 	ctx.Output.Body([]byte("hello world dd"))
 	// })
 	beego.Router("/public/:all", &controllers.PublicController{})
-	beego.Router("/git", &controllers.UserController{})
+	beego.Router("/help", &controllers.HelpController{})
 	beego.Router("/user", &controllers.UserController{})
 	beego.Router("/login", &controllers.LoginController{})
+	beego.Router("/logout", &controllers.LogoutController{})
 	beego.Router("/dashbord", &controllers.DashbordController{})
 	beego.Router("/homepage", &controllers.HomepageController{})
 	beego.Router("/vue", &controllers.VueController{})

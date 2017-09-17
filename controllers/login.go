@@ -3,10 +3,7 @@ package controllers
 import (
 	"fmt"
 	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/cache"
-	_ "github.com/astaxie/beego/cache/redis"
 	"github.com/astaxie/beego/logs"
-	"time"
 
 	mysession "app/lib/session"
 	m "app/models"
@@ -17,21 +14,6 @@ type LoginController struct {
 }
 
 func (this *LoginController) Get() {
-	fmt.Println("wwwwwwwwwww")
-	// memory
-	// bm, _ := cache.NewCache("memory", `{"interval":60}`)
-	// redis
-	bm, err := cache.NewCache("redis", `{"key":"collectionName", "conn": "127.0.0.1:6379", "dbNum":"0"}`)
-	if err != nil {
-		fmt.Println(err)
-	}
-	bm.Put("astaxie", 1, 10*time.Second)
-	bm.Get("astaxie")
-	// fmt.Println(bm.Get("astaxie"))
-	// bm.IsExist("astaxie")
-	// bm.Delete("astaxie")
-	fmt.Println("wwwwwwwwwww")
-
 	log := logs.NewLogger()
 	logs.SetLogger(logs.AdapterConsole, `{"level":1}`)
 	log.Debug("this is a debug message -dsds")

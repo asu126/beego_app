@@ -29,5 +29,5 @@ func (this *UserController) Get() {
 
 	this.Data["Website"] = this.Ctx.Input.Param(":id")
 	this.Data["Email"] = "astfffffffffffffffffffffffffxie@gmail.com"
-	this.TplName = "demo.tpl"
+	this.TplName = "help.tpl"
 }

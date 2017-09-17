@@ -19,9 +19,9 @@ func (this *DashbordController) Get() {
 		/* act on str */
 		fmt.Println(client_sid)
 
-		id, err := mysession.GetSessionIdBySid(client_sid)
-		if err == nil && id != "" {
-			fmt.Println(id)
+		username, err := mysession.GetSessionIdBySid(client_sid)
+		if err == nil && client_sid != "" {
+			this.Data["Username"] = username
 			this.TplName = "dashbord.html"
 		} else {
 			this.Redirect("/login", 302)
