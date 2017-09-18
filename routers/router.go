@@ -3,7 +3,7 @@ package routers
 import (
 	"app/controllers"
 	"github.com/astaxie/beego"
-	// "github.com/astaxie/beego/context"
+	"github.com/astaxie/beego/context"
 )
 
 const (
@@ -12,11 +12,6 @@ const (
 	gitProjectPattern = `^/([^/]+/){1,}[^/]+\.git/`
 	projectPattern    = `^/([^/]+/){1,}[^/]+/`
 )
-
-// route("GET", gitProjectPattern+`info/refs\z`, git.GetInfoRefsHandler(api)),
-// route("POST", gitProjectPattern+`git-upload-pack\z`, contentEncodingHandler(git.UploadPack(api)), isContentType("application/x-git-upload-pack-request")),
-// route("POST", gitProjectPattern+`git-receive-pack\z`, contentEncodingHandler(git.ReceivePack(api)), isContentType("application/x-git-receive-pack-request")),
-// route("PUT", gitProjectPattern+`gitlab-lfs/objects/([0-9a-f]{64})/([0-9]+)\z`, lfs.PutStore(api, proxy), isContentType("application/octet-stream")),
 
 func init() {
 	beego.Router("/", &controllers.MainController{})
@@ -34,8 +29,51 @@ func init() {
 	beego.Router("/login", &controllers.LoginController{})
 	beego.Router("/logout", &controllers.LogoutController{})
 	beego.Router("/dashbord", &controllers.DashbordController{})
+
+	ns :=
+		beego.NewNamespace("/dashbord",
+			// beego.NSCond(func(ctx *context.Context) bool {
+			// 	if ctx.Input.Domain() == "api.beego.me" {
+			// 		return true
+			// 	}
+			// 	return false
+			// }),
+			// beego.NSBefore(auth),
+			beego.NSGet("/notallowed", func(ctx *context.Context) {
+				ctx.Output.Body([]byte("notAllowed"))
+			}),
+			beego.NSRouter("/reports", &controllers.DashbordController{}, "get:Reports"),
+			beego.NSNamespace("/cms",
+				beego.NSInclude(
+					&controllers.MainController{},
+				),
+			),
+		)
+	beego.AddNamespace(ns)
+
+	api_ns :=
+		beego.NewNamespace("/api/v1",
+			beego.NSNamespace("/shop",
+				beego.NSGet("/:id", func(ctx *context.Context) {
+					ctx.Output.Body([]byte("shopinfo"))
+				}),
+			),
+			beego.NSNamespace("/order",
+				beego.NSGet("/:id", func(ctx *context.Context) {
+					ctx.Output.Body([]byte("orderinfo"))
+				}),
+			),
+			beego.NSNamespace("/crm",
+				beego.NSGet("/:id", func(ctx *context.Context) {
+					ctx.Output.Body([]byte("crminfo"))
+				}),
+			),
+		)
+	beego.AddNamespace(api_ns)
+
 	beego.Router("/homepage", &controllers.HomepageController{})
 	beego.Router("/vue", &controllers.VueController{})
+	beego.Router("/user/:username([0-9a-zA-Z_-]+)", &controllers.HomepageController{})
 	// beego.Get("/api", func(ctx *context.Context) {
 	// 	ctx.Output.Body([]byte("hello api"))
 	// })

@@ -14,6 +14,7 @@ type HomepageController struct {
 
 func (this *HomepageController) Get() {
 	fmt.Println("(0000000000000 0000000000)")
+	fmt.Println(this.Ctx.Input.Param(":username"))
 	fmt.Println("(0000000000000 0000000000)")
 	this.TplName = "homepage.html"
 }
