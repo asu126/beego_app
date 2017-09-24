@@ -24,10 +24,14 @@ func (this *UserController) Get() {
 	fmt.Println(keys, len(keys))
 	fmt.Println(this.Ctx.Request.RequestURI)
 
-	user, _ := m.FindByID(66)
-	fmt.Println(user.Id)
+	users, count := m.Getuserlist(0, 10, "Id")
+	posts, _ := m.GetUserPostList(1)
+	this.Data["users"] = &users
+	this.Data["posts"] = &posts
+	fmt.Println(users)
+	fmt.Println(count)
 
 	this.Data["Website"] = this.Ctx.Input.Param(":id")
 	this.Data["Email"] = "astfffffffffffffffffffffffffxie@gmail.com"
-	this.TplName = "help.tpl"
+	this.TplName = "users.html"
 }
