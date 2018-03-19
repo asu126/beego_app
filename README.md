@@ -2,6 +2,19 @@
 这个基于beego框架的app,旨在熟悉beego框架下mvc的使用，以及go语言几web知识的学习
 
 
+### 如何运行
+```
+sudo apt install mysql-server
+go get github.com/astaxie/beego
+go get github.com/beego/bee
+git clone https://github.com/asu126/beego_app.git
+cd beego_app && bee run
+mysql命令行下初始化数据库： doc/sql_init.sql
+访问页面：
+http://localhost:8080
+http://localhost:8080/dashbord 需登录
+```
+
 ### js
 - npm init
 - webpack
@@ -67,9 +80,21 @@ ctx.Input.CruSession.Delete("Adminname")         //删除Session
  ```
 
 ### 参考说明
-[beego]: https://beego.me/docs/intro/
-[beego 工程]: https://github.com/beego/admin.
-[webpack]: http://www.jianshu.com/p/42e11515c10f
-[webpack-1]: https://webpack.js.org/configuration/dev-server/
-[vue]: https://cn.vuejs.org/
-[vue-demo]: https://segmentfault.com/a/1190000008678236
+[beego](https://beego.me/docs/intro/)
+[beego 工程](https://github.com/beego/admin)
+[webpack](http://www.jianshu.com/p/42e11515c10f)
+[webpack-1](https://webpack.js.org/configuration/dev-server/)
+[vue](https://cn.vuejs.org/)
+[vue-demo](https://segmentfault.com/a/1190000008678236)
+
+### go 学习资源
+[gobyexample](https://gobyexample.com)
+[tour.go-z](https://tour.go-zh.org)
+[studygolang](https://studygolang.com/dl)
+[gitbooks](https://liushuchun.gitbooks.io/golang/content/go_concurence.html)
+[Golang资料整理](https://www.jianshu.com/p/d7a03c8e4e8a)
+[build-web-application-with-golang](https://github.com/astaxie/build-web-application-with-golang)
+[go doc 中文地址]( https://golang.google.cn/)
+
+[grpc](https://grpc.io/docs/quickstart/)
+[grpc-zh](https://doc.oschina.net/grpc?t=56831)
